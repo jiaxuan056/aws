@@ -80,9 +80,9 @@ require_once 'helper.php';
                                 $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
 
                                 if (!empty($search)) {
-                                    $sql = "SELECT * FROM Product WHERE product_name LIKE '%$search%' OR category LIKE '%$search%'";
+                                    $sql = "SELECT * FROM product WHERE product_name LIKE '%$search%' OR category LIKE '%$search%'";
                                 } else {
-                                    $sql = "SELECT * FROM Product";
+                                    $sql = "SELECT * FROM product";
                                 }
 
                                 $result = $conn->query($sql);
@@ -199,7 +199,7 @@ require_once 'helper.php';
                         <div class="container">
                             <div class="row">
                                 <?php
-                                $sql = "SELECT * FROM Product WHERE category = 'Souvenirs'";
+                                $sql = "SELECT * FROM product WHERE category = 'Souvenirs'";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
