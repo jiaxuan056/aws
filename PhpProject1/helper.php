@@ -1,8 +1,8 @@
 <?php
 
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'labdb.cvkhzwxnsb9m.us-east-1.rds.amazonaws.com');
 define('DB_USER', 'jiaxuan');
-define('DB_PASS', 'lab-password');
+define('DB_PASS', 'a3014402');
 define('DB_NAME', 'cloud');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
