@@ -27,6 +27,9 @@ $orderQuery .= " LIMIT $recordsPerPage OFFSET $offset";
 
 // Get the orders for the current page
 $orderResult = $conn->query($orderQuery);
+if (!$orderResult) {
+    die("Order query failed: " . $conn->error);
+}
 
 // Query to get the total number of records for pagination calculation
 $totalQuery = "SELECT COUNT(*) AS total FROM order_re";
@@ -119,9 +122,9 @@ $totalPages = ceil($totalRows / $recordsPerPage);
                                 $orderDate = $order['order_date'];
 
                                 // Query to get the items for the current order
-                                $orderItemQuery = "SELECT oi.product_id, oi.quantity, oi.price, p.product_name \
-                                                   FROM order_item oi\
-                                                   JOIN product p ON oi.product_id = p.product_id\
+                                $orderItemQuery = "SELECT oi.product_id, oi.quantity, oi.price, p.product_name
+                                                   FROM order_item oi
+                                                   JOIN product p ON oi.product_id = p.product_id
                                                    WHERE oi.order_id = $orderId";
                                 $orderItemResult = $conn->query($orderItemQuery);
                                 ?>
@@ -238,4 +241,4 @@ $totalPages = ceil($totalRows / $recordsPerPage);
     </body>
 </html>
 
-<?php $conn->close(); ?>
+<?php $conn->close(); ?>
