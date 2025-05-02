@@ -24,7 +24,7 @@ require_once 'helper.php';
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active position-relative">
-                    <img src="img/banner.jpg" class="d-block w-100" alt="Product Banner">
+                    <img src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/banner.jpg" class="d-block w-100" alt="Product Banner">
 
                     <!-- Overlay -->
                     <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
