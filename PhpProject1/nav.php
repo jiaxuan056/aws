@@ -4,7 +4,7 @@
                 <div class="container-fluid container">
                     <!-- Logo on the left -->
                     <a class="navbar-brand" href="#">
-                        <img src="img/logo.jpg" alt="Logo" width="100" height="40" class="d-inline-block align-text-top">
+                        <img src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/logo.jpg" alt="Logo" width="100" height="40" class="d-inline-block align-text-top">
                     </a>
 
                     <!-- Navbar links and CTA button -->
