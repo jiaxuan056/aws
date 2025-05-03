@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check if a new image is uploaded
     if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] == 0) {
-        $targetDir = "../img/product/";
+        $targetDir = "https://jiaxuanbucket.s3.us-east-1.amazonaws.com/";
         $imageName = basename($_FILES["product_image"]["name"]);
         $targetFilePath = $targetDir . $imageName;
 
