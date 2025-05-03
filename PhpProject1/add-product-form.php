@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Upload image
     $imageName = "";
     if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] == 0) {
-        $targetDir = "img/product/"; // <- make sure this folder exists
+        $targetDir = "https://jiaxuanbucket.s3.us-east-1.amazonaws.com/"; // <- make sure this folder exists
         $imageName = basename($_FILES["product_image"]["name"]);
         $targetFilePath = $targetDir . $imageName;
 
