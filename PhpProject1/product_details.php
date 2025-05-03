@@ -68,7 +68,7 @@ $product = $result->fetch_assoc();
             <div class="card product-details-card">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="img/product/<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>" class="img-fluid product-image">
+                        <img src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>" class="img-fluid product-image">
                     </div>
 
                     <div class="col-md-6 d-flex align-items-center">
@@ -98,7 +98,7 @@ $product = $result->fetch_assoc();
                                 </button>
                             <?php endif; ?>
 
-                            <a href="product.php" class="btn btn-outline-secondary btn-add-cart ms-3">
+                            <a href="index.php" class="btn btn-outline-secondary btn-add-cart ms-3">
                                 <i class="fas fa-arrow-left"></i> Back to Products
                             </a>
                         </div>
