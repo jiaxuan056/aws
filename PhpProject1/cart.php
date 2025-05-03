@@ -46,7 +46,7 @@ $result = $conn->query($sql);
                                             <div class="row">
                                                 <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                                                     <div class="rounded" data-mdb-ripple-color="light">
-                                                        < src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/<?php echo $row['image_url']; ?>" class="w-100" alt="<?php echo $row['product_name']; ?>" />
+                                                        <img src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/<?php echo $row['image_url']; ?>" class="w-100" alt="<?php echo $row['product_name']; ?>" />
                                                     </div>
                                                 </div>
 
