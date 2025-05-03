@@ -110,7 +110,7 @@ $totalPages = ceil($totalProducts / $productsPerPage);
                                 echo '<tr>';
                                 echo '<td>P' . str_pad($row['product_id'], 3, '0', STR_PAD_LEFT) . '</td>';
                                 echo '<td>' . htmlspecialchars($row['product_name']) . '</td>';
-                                echo '<td><img src="img/product/' . htmlspecialchars($row['image_url']) . '" style="width: 100px; height: auto;"></td>';
+                                echo '<td><img src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/' . htmlspecialchars($row['image_url']) . '" style="width: 100px; height: auto;"></td>';
                                 echo '<td>' . htmlspecialchars($row['category']) . '</td>';
                                 echo '<td>' . htmlspecialchars($row['description']) . '</td>';
                                 echo '<td>' . number_format($row['price'], 2) . '</td>';
