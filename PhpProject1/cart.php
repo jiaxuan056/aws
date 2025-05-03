@@ -46,7 +46,7 @@ $result = $conn->query($sql);
                                             <div class="row">
                                                 <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                                                     <div class="rounded" data-mdb-ripple-color="light">
-                                                        <img src="img/product/<?php echo $row['image_url']; ?>" class="w-100" alt="<?php echo $row['product_name']; ?>" />
+                                                        < src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/<?php echo $row['image_url']; ?>" class="w-100" alt="<?php echo $row['product_name']; ?>" />
                                                     </div>
                                                 </div>
 
@@ -109,10 +109,10 @@ $result = $conn->query($sql);
                             <div class="card-body">
                                 <p><strong>We accept</strong></p>
                                 <img class="me-2" width="45px" height="30px"
-                                     src="img/payment-m1.png"
+                                     src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/payment-m1.png"
                                      alt="Visa" />
                                 <img class="me-2" width="45px" height="30px"
-                                     src="img/payment-m2.png"
+                                     src="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/payment-m2.png"
                                      alt="TNG "/>
                             </div>
                         </div>
