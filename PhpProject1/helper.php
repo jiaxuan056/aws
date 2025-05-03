@@ -13,4 +13,4 @@ if ($conn->connect_error) {
 }
 ?>
 
-<link rel="icon" href="img/logo.jpg">
+<link rel="icon" href="https://jiaxuanbucket.s3.us-east-1.amazonaws.com/logo.jpg">
