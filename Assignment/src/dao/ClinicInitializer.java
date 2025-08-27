@@ -46,7 +46,7 @@ public class ClinicInitializer {
             DOCTORS.add(new Doctor("Dr. Benjamin Lee", "Orthopedics", "Tue,Wed,Thu,Fri,Sat"));
             DOCTORS.add(new Doctor("Dr. Clara Wong", "Dermatology", "Mon,Tue,Wed,Thu"));
             DOCTORS.add(new Doctor("Dr. Daniel Lim", "Pediatrics", "Wed,Thu,Fri,Sat,Sun"));
-            DOCTORS.add(new Doctor("Dr. Emily Chua", "Neurology", "Mond,Tue,Wed,Thu,Fri"));
+            DOCTORS.add(new Doctor("Dr. Emily Chua", "Neurology", "Mon,Tue,Wed,Thu,Fri"));
         }
         return DOCTORS;
     }
