@@ -17,7 +17,6 @@ src/boundary/MedicalTreatmentUI.java
 src/boundary/DoctorUI.java
 src/adt/ArrayList.java
 src/adt/ListInterface.java
-src/adt/SortedArrayList.java
 src/control/DoctorManagement.java
 src/control/ConsultationManagement.java
 src/control/PharmacyManagement.java

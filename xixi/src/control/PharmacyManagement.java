@@ -2,7 +2,7 @@
 package control;
 
 import adt.ListInterface;
-import adt.SortedArrayList;
+import adt.ArrayList;
 import boundary.PharmacyManagementUI;
 import dao.ClinicInitializer;
 import entity.DispenseRecord;
@@ -16,9 +16,9 @@ import java.util.Comparator;
 
 public class PharmacyManagement {
     private final PharmacyManagementUI ui = new PharmacyManagementUI();
-    private ListInterface<Medicine> inventoryList = new SortedArrayList<>();
-    private ListInterface<DispenseRecord> dispensesList = new SortedArrayList<>();
-    private ListInterface<MedicalTreatment> treatmentList = new SortedArrayList<>();
+    private ListInterface<Medicine> inventoryList = new ArrayList<>();
+    private ListInterface<DispenseRecord> dispensesList = new ArrayList<>();
+    private ListInterface<MedicalTreatment> treatmentList = new ArrayList<>();
 
     public PharmacyManagement() {
         this.treatmentList = ClinicInitializer.initializeMedicalTreatments();

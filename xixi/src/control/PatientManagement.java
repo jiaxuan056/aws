@@ -8,13 +8,13 @@ import utility.MessageUI;
 import entity.Patient;
 import adt.ListInterface;
 import dao.ClinicInitializer;
-import adt.SortedArrayList;
+import adt.ArrayList;
 
 public class PatientManagement {
     private Scanner sc = new Scanner(System.in);
     private PatientManagementUI patientUI = new PatientManagementUI();
-    private ListInterface<Patient> patientList = new SortedArrayList<>();
-    private ListInterface<Patient> patientQueue = new SortedArrayList<>();
+    private ListInterface<Patient> patientList = new ArrayList<>();
+    private ListInterface<Patient> patientQueue = new ArrayList<>();
 
     public PatientManagement() {
         patientList = ClinicInitializer.initializePatients();
@@ -252,7 +252,7 @@ public class PatientManagement {
             System.out.println("No patients registered.");
         } else {
             System.out.println("\n=== Patient List ===");
-            ((SortedArrayList<Patient>) patientList).sort(new Comparator<Patient>() {
+            patientList.sort(new Comparator<Patient>() {
                 public int compare(Patient a, Patient b) {
                     return a.compareTo(b);
                 }
