@@ -173,11 +173,10 @@ public class PatientManagement {
                     }
                 }
                 break;
-            case 4:
+            case 0:
                 return;
             default:
                 System.out.println("Invalid choice.");
-                return;
         }
 
         if (!found) {
