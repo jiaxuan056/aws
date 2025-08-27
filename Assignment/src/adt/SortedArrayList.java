@@ -57,6 +57,7 @@ public class SortedArrayList<T extends Comparable<T>> implements ListInterface<T
      * @return A reference to the removed entry.
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
+    
     public T remove(int givenPosition) {
         checkIndex(givenPosition);
         T removedEntry = data[givenPosition];

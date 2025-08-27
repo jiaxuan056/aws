@@ -1,6 +1,6 @@
 package entity;
 
-public class Doctor {
+public class Doctor implements Comparable<Doctor> {
     private static int ID = 1001;
     private String doctorID;
     private String name;
@@ -62,4 +62,12 @@ public class Doctor {
         return String.format("Doctor[ID=%s, Name=%s, Spec=%s, DutyDays=%s, BookedSlots=%s]",
                 doctorID, name, specialization, dutyDays, bookedSlots);
     }
+
+    @Override
+
+public int compareTo(Doctor other) {
+    // natural order by doctorID; change if you prefer name or specialization
+    return this.doctorID.compareTo(other.doctorID);
+}
+
 }

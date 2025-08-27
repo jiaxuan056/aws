@@ -42,15 +42,11 @@ public class ClinicInitializer {
     public static ListInterface<Doctor> initializeDoctors() {
         if (DOCTORS == null) {
             DOCTORS = new SortedArrayList<>();
-        // Add sample doctors (use dutyDays preset for simplicity)
-            DOCTORS.add(new Doctor("Dr. Sarah Chen", "Cardiology", "Mon,Wed,Fri"));
-            DOCTORS.add(new Doctor("Dr. Michael Wong", "Neurology", "Tue,Thu"));
-            DOCTORS.add(new Doctor("Dr. Emily Rodriguez", "Pediatrics", "Mon,Fri"));
-            DOCTORS.add(new Doctor("Dr. James Lee", "Orthopedics", "Wed,Thu"));
-            DOCTORS.add(new Doctor("Dr. Lisa Patel", "General Medicine", "Mon,Tue,Wed,Thu,Fri"));
-            DOCTORS.add(new Doctor("Dr. Robert Kim", "Emergency Medicine", "Sat,Sun"));
-            DOCTORS.add(new Doctor("Dr. Jennifer Singh", "Cardiology", "Tue,Thu"));
-            DOCTORS.add(new Doctor("Dr. David Zhang", "Neurology", "Mon,Wed"));
+            DOCTORS.add(new Doctor("Dr. Alice Tan", "Cardiology", "Mon,Tue,Wed,Thu,Fri"));
+            DOCTORS.add(new Doctor("Dr. Benjamin Lee", "Orthopedics", "Tue,Wed,Thu,Fri,Sat"));
+            DOCTORS.add(new Doctor("Dr. Clara Wong", "Dermatology", "Mon,Tue,Wed,Thu"));
+            DOCTORS.add(new Doctor("Dr. Daniel Lim", "Pediatrics", "Wed,Thu,Fri,Sat,Sun"));
+            DOCTORS.add(new Doctor("Dr. Emily Chua", "Neurology", "Mond,Tue,Wed,Thu,Fri"));
         }
         return DOCTORS;
     }

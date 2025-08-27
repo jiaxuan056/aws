@@ -64,7 +64,7 @@ public class Patient implements Comparable<Patient> {
     }
 
     public int compareTo(Patient other) {
-        return this.name.compareToIgnoreCase(other.name);
+        return this.name.compareTo(other.name);
     }
     
     public String toString() {

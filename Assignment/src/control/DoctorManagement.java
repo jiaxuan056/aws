@@ -1,21 +1,21 @@
 // WONG HWAI EARN
 package control;
+
 import entity.Consultation;
 import dao.ClinicInitializer;
 import adt.*;
 import boundary.DoctorUI;
 import entity.Doctor;
 import utility.MessageUI;
-import dao.*;
 public class DoctorManagement {
     private ListInterface<Doctor> doctorList = new SortedArrayList<>();
     private ListInterface<Consultation> consultationList = new SortedArrayList<>();
     private DoctorUI doctorUI = new DoctorUI();
-
+    
+    public DoctorManagement() {
+        doctorList = ClinicInitializer.initializeDoctors();
+    }
     public void runDoctorManagement() {
-        DoctorInitializer d = new DoctorInitializer(); 
-        doctorList = d.initializeDoctors();
-        consultationList = ConsultationInitializer.seed(doctorList);
         int choice;
         do {
             choice = doctorUI.getMainMenuChoice();
@@ -36,10 +36,10 @@ public class DoctorManagement {
         String specialization = doctorUI.inputDoctorSpecialization();
         String dutyDays = doctorUI.inputDoctorDutyDays();
 
-        Doctor doctor = new Doctor(name, specialization, dutyDays);
-        doctorList.add(doctor);
+        Doctor newDoctor = new Doctor(name, specialization, dutyDays);
+        doctorList.add(newDoctor);
 
-        System.out.println("Doctor registered: " + doctor.getId() + " - " + doctor.getName());
+        System.out.println("Doctor registered: " + newDoctor.getId() + " - " + newDoctor.getName());
     }
 
     // ===== Management =====
@@ -61,27 +61,26 @@ public class DoctorManagement {
 
 
     public void displayAllDoctors() {
-    if (doctorList.getNumberOfEntries() == 0) {
-        System.out.println("No doctors registered.");
-        return;
+        if (doctorList.size() == 0) {
+            System.out.println("No doctors registered.");
+            return;
+        }
+
+        System.out.println("\n================= Doctor List =================");
+        System.out.printf("%-10s %-20s %-15s %-20s%n",
+                "ID", "Name", "Specialization", "Duty Days");
+        System.out.println("------------------------------------------------------------------------------------------------");
+
+        for (int i = 0; i < doctorList.size(); i++) {
+            Doctor d = doctorList.get(i);
+            System.out.printf("%-10s %-20s %-15s %-20s%n",
+                    d.getId(),
+                    d.getName(),
+                    d.getSpecialization(),
+                    d.getDutyDays());
+        }
     }
 
-    System.out.println("\n================= Doctor List =================");
-    // Table header
-    System.out.printf("%-10s %-20s %-15s %-20s\n",
-            "ID", "Name", "Specialization", "Duty Days");
-    System.out.println("------------------------------------------------------------------------------------------------");
-
-    // Table rows
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        Doctor d = doctorList.getEntry(i);
-        System.out.printf("%-10s %-20s %-15s %-20s\n",
-                d.getId(),
-                d.getName(),
-                d.getSpecialization(),
-                d.getDutyDays());
-    }
-}
 
     private void searchDoctor() {
         String id = doctorUI.inputDoctorIdToSearch();
@@ -108,8 +107,8 @@ public class DoctorManagement {
     System.out.println("\n--- Doctors in " + specialization + " ---");
     boolean found = false;
 
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        Doctor d = doctorList.getEntry(i);
+    for (int i = 1; i <= doctorList.size(); i++) {
+        Doctor d = doctorList.get(i);
         if (d.getSpecialization().equalsIgnoreCase(specialization)) {
             if(!found){
                 System.out.printf("%-10s %-20s %-15s %-20s\n",
@@ -205,8 +204,8 @@ public class DoctorManagement {
     }
 
     // 2. Check clashes with existing consultations
-    for (int i = 1; i <= consultationList.getNumberOfEntries(); i++) {
-        Consultation c = consultationList.getEntry(i);
+    for (int i = 1; i <= consultationList.size(); i++) {
+        Consultation c = consultationList.get(i);
         if (c.getDoctorId().equals(doctor.getId())
                 && c.getDay().equalsIgnoreCase(day)
                 && c.getStatus().equals("BOOKED")) {
@@ -266,8 +265,8 @@ public class DoctorManagement {
 
     // ===== Helper methods =====
     private Doctor findDoctorById(String id) {
-        for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-            Doctor doctor = doctorList.getEntry(i);
+        for (int i = 1; i <= doctorList.size(); i++) {
+            Doctor doctor = doctorList.get(i);
             if (doctor.getId().equalsIgnoreCase(id)) {
                 return doctor;
             }
@@ -276,10 +275,10 @@ public class DoctorManagement {
     }
 
     private boolean removeDoctorById(String id) {
-        for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-            Doctor doctor = doctorList.getEntry(i);
+        for (int i = 1; i <= doctorList.size(); i++) {
+            Doctor doctor = doctorList.get(i);
             if (doctor.getId().equalsIgnoreCase(id)) {
-                doctorList.remove(i);
+                doctorList.removeAt(i);
                 return true;
             }
         }
@@ -291,8 +290,8 @@ public class DoctorManagement {
 
     int mon = 0, tue = 0, wed = 0, thu = 0, fri = 0, sat = 0, sun = 0;
 
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        Doctor d = doctorList.getEntry(i);
+    for (int i = 1; i <= doctorList.size(); i++) {
+        Doctor d = doctorList.get(i);
         String dutyDays = d.getDutyDays();
 
         if (dutyDays.contains("Mon")) mon++;
@@ -328,8 +327,8 @@ public class DoctorManagement {
 
     // Cardiology
     int cardiologyCount = 0;
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        if (doctorList.getEntry(i).getSpecialization().equalsIgnoreCase("Cardiology")) {
+    for (int i = 1; i <= doctorList.size(); i++) {
+        if (doctorList.get(i).getSpecialization().equalsIgnoreCase("Cardiology")) {
             cardiologyCount++;
         }
     }
@@ -337,8 +336,8 @@ public class DoctorManagement {
 
     // Dermatology
     int dermatologyCount = 0;
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        if (doctorList.getEntry(i).getSpecialization().equalsIgnoreCase("Dermatology")) {
+    for (int i = 1; i <= doctorList.size(); i++) {
+        if (doctorList.get(i).getSpecialization().equalsIgnoreCase("Dermatology")) {
             dermatologyCount++;
         }
     }
@@ -346,8 +345,8 @@ public class DoctorManagement {
 
     // Pediatrics
     int pediatricsCount = 0;
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        if (doctorList.getEntry(i).getSpecialization().equalsIgnoreCase("Pediatrics")) {
+    for (int i = 1; i <= doctorList.size(); i++) {
+        if (doctorList.get(i).getSpecialization().equalsIgnoreCase("Pediatrics")) {
             pediatricsCount++;
         }
     }
@@ -355,8 +354,8 @@ public class DoctorManagement {
 
     // Orthopedics
     int orthoCount = 0;
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        if (doctorList.getEntry(i).getSpecialization().equalsIgnoreCase("Orthopedics")) {
+    for (int i = 1; i <= doctorList.size(); i++) {
+        if (doctorList.get(i).getSpecialization().equalsIgnoreCase("Orthopedics")) {
             orthoCount++;
         }
     }
@@ -364,8 +363,8 @@ public class DoctorManagement {
 
     // Neurology
     int neuroCount = 0;
-    for (int i = 1; i <= doctorList.getNumberOfEntries(); i++) {
-        if (doctorList.getEntry(i).getSpecialization().equalsIgnoreCase("Neurology")) {
+    for (int i = 1; i <= doctorList.size(); i++) {
+        if (doctorList.get(i).getSpecialization().equalsIgnoreCase("Neurology")) {
             neuroCount++;
         }
     }

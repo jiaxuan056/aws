@@ -15,7 +15,6 @@ public interface ListInterface<T> extends Iterable<T> {
     boolean addSorted(T item, Comparator<T> comparator);
     int lowerBound(T key, Comparator<T> comparator);
     void removeAt(int index);
-
     /**
      * Sorts the list using the provided comparator
      * @param comparator the comparator to use for sorting
