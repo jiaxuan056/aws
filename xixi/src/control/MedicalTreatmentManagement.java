@@ -11,6 +11,7 @@ import entity.Doctor;
 import entity.Consultation;
 import adt.ArrayList;
 import adt.ListInterface;
+import adt.SortedArrayList;
 import dao.ClinicInitializer;
 
 public class MedicalTreatmentManagement {

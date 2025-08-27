@@ -4,6 +4,8 @@ package utility;
 import entity.Doctor;
 import entity.Consultation;
 import adt.ListInterface;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ValidationUtil {
 
@@ -104,5 +106,24 @@ public class ValidationUtil {
             }
         }
         d.setBookedSlots(sb.toString());
+    }
+
+    // ===== Additional helpers used by InputUtil =====
+    public static boolean nonEmpty(String s) {
+        return s != null && !s.trim().isEmpty();
+    }
+
+    public static boolean notPast(LocalDate d) {
+        if (d == null) return false;
+        return !d.isBefore(LocalDate.now());
+    }
+
+    public static boolean durationValid(int minutes) {
+        return minutes == 30 || minutes == 60 || minutes == 90 || minutes == 120;
+    }
+
+    public static boolean dateTimeNotPast(LocalDateTime t) {
+        if (t == null) return false;
+        return !t.isBefore(LocalDateTime.now());
     }
 }

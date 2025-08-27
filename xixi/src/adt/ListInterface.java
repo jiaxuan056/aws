@@ -3,7 +3,7 @@ package adt;
 
 import java.util.Comparator;
 
-public interface ListInterface<T>{
+public interface ListInterface<T> extends Iterable<T>{
     boolean remove(T item);
     T get(int index);
     int size();
