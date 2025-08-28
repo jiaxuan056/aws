@@ -15,10 +15,10 @@ import dao.ClinicInitializer;
 
 public class MedicalTreatmentManagement {
     final MedicalTreatmentUI treatmentUI = new MedicalTreatmentUI();
-    private ListInterface<MedicalTreatment> treatmentList = new SortedArrayList<>(); //ADT object declared 
-    private ListInterface<Patient> patientList = new SortedArrayList<>();; //ADT object declared 
-    private ListInterface<Doctor> doctorList = new SortedArrayList<>();; //ADT object declared 
-    private ListInterface<Consultation> consultationList = new SortedArrayList<>();
+    private ListInterface<MedicalTreatment> treatmentList = new ArrayList<>(); //ADT object declared 
+    private ListInterface<Patient> patientList = new ArrayList<>();; //ADT object declared 
+    private ListInterface<Doctor> doctorList = new ArrayList<>();; //ADT object declared 
+    private ListInterface<Consultation> consultationList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
     // Feature flag: set to true to auto-dispense after adding treatment
@@ -272,8 +272,8 @@ public class MedicalTreatmentManagement {
         System.out.print("Enter Patient Name (or partial name): ");
         String patientName = scanner.nextLine().trim();
         
-        // ADT: collect matches using ListInterface.add() on a SortedArrayList
-        ListInterface<Patient> matchingPatients = new SortedArrayList<>(); // ADT object declared
+        // ADT: collect matches using ListInterface.add() on an ArrayList
+        ListInterface<Patient> matchingPatients = new ArrayList<>(); // ADT object declared
         
         // ADT: traverse patientList via iterator()
         for (Patient patient : matchingPatients) { // ADT method called from ListInterface class
@@ -317,7 +317,7 @@ public class MedicalTreatmentManagement {
         String specialization = treatmentUI.inputSpecialization();
         
         // ADT: collect matching doctors using ListInterface.add()
-        ListInterface<Doctor> matchingDoctors = new SortedArrayList<>(); // ADT object declared
+        ListInterface<Doctor> matchingDoctors = new ArrayList<>(); // ADT object declared
         
         // ADT: traverse doctorList via iterator()
         for (Doctor doctor : matchingDoctors) { // ADT method called from ListInterface class
@@ -367,7 +367,7 @@ public class MedicalTreatmentManagement {
         }
         
         // ADT: collect matches
-        ListInterface<MedicalTreatment> results = new SortedArrayList<>(); // ADT object declared 
+        ListInterface<MedicalTreatment> results = new ArrayList<>(); // ADT object declared 
         for (MedicalTreatment t : treatmentList) { // ADT: iterator()
             if (t.getTreatmentDate() != null && t.getTreatmentDate().isEqual(date)) {
                 results.add(t); // ADT: add()
@@ -889,7 +889,7 @@ public class MedicalTreatmentManagement {
     // ===== HELPER METHODS FOR ADVANCED SEARCHING =====
     
     private int countUniqueDoctorsForPatient(String patientId) {
-        ListInterface<String> uniqueDoctors = new SortedArrayList<>();
+        ListInterface<String> uniqueDoctors = new ArrayList<>();
         
         for (int i = 0; i < treatmentList.size(); i++) {
             MedicalTreatment treatment = treatmentList.get(i);

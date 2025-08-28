@@ -8,7 +8,7 @@ import entity.Medicine;
 import entity.DispenseRecord;
 import entity.Consultation;
 import adt.ListInterface;
-import adt.SortedArrayList;
+import adt.ArrayList;
 import java.time.LocalDate;
 // import java.time.LocalDateTime;
 
@@ -23,7 +23,7 @@ public class ClinicInitializer {
     
     public static ListInterface<Patient> initializePatients() {
         if (PATIENTS == null) {
-            PATIENTS = new SortedArrayList<>();
+            PATIENTS = new ArrayList<>();
         // Add sample patients
             PATIENTS.add(new Patient("John Smith", "M", 35, "0123456789", "Fever"));
             PATIENTS.add(new Patient("Mary Johnson", "F", 28, "0123456790", "Headache"));
@@ -41,7 +41,7 @@ public class ClinicInitializer {
     
     public static ListInterface<Doctor> initializeDoctors() {
         if (DOCTORS == null) {
-            DOCTORS = new SortedArrayList<>();
+            DOCTORS = new ArrayList<>();
         // Add sample doctors (use dutyDays preset for simplicity)
             DOCTORS.add(new Doctor("Dr. Sarah Chen", "Cardiology", "Mon,Wed,Fri"));
             DOCTORS.add(new Doctor("Dr. Michael Wong", "Neurology", "Tue,Thu"));
@@ -57,7 +57,7 @@ public class ClinicInitializer {
     
     public static ListInterface<MedicalTreatment> initializeMedicalTreatments() {
         if (TREATMENTS == null) {
-            TREATMENTS = new SortedArrayList<>();
+            TREATMENTS = new ArrayList<>();
             // Ensure patients and doctors are initialized
         ListInterface<Patient> patientList = initializePatients();
         ListInterface<Doctor> doctorList = initializeDoctors();
@@ -172,7 +172,7 @@ public class ClinicInitializer {
     
     public static ListInterface<Medicine> initializeMedicines() {
         if (MEDICINES == null) {
-            MEDICINES = new SortedArrayList<>();
+            MEDICINES = new ArrayList<>();
             // Add sample medicines
             MEDICINES.add(new Medicine("Paracetamol", "Tablet", 0.50, 500, 100));
             MEDICINES.add(new Medicine("Ibuprofen", "Tablet", 0.80, 300, 80));
@@ -188,7 +188,7 @@ public class ClinicInitializer {
     
     public static ListInterface<DispenseRecord> initializeDispenseRecords() {
         if (DISPENSES == null) {
-            DISPENSES = new SortedArrayList<>();
+            DISPENSES = new ArrayList<>();
             // Sample dispenses will be added as pharmacy operations occur
             // Add a few initial records to demonstrate reports
             ListInterface<MedicalTreatment> treatments = initializeMedicalTreatments();
@@ -208,7 +208,7 @@ public class ClinicInitializer {
     
     public static ListInterface<Consultation> initializeConsultations() {
         if (CONSULTATIONS == null) {
-            CONSULTATIONS = new SortedArrayList<>();
+            CONSULTATIONS = new ArrayList<>();
             // Build consultations that depend on actual seeded Doctors and Patients
             ListInterface<Doctor> docs = initializeDoctors();
             ListInterface<Patient> pats = initializePatients();
